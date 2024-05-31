@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "stage-2"
+  ],
+  // "plugins": ["transform-runtime"],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]
+    },
+    "development": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]
+    }
+  },
+  "plugins": [
+    [
+      "transform-runtime",
+      "import",
+      {
+        "libraryName": "vant",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ]
+  ]
+}

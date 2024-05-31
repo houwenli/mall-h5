@@ -1,0 +1,122 @@
+.recharg-record {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #f6f6f7;
+  padding: 18px 12px;
+  .search {
+    margin-bottom: 13px;
+    background: #ffffff;
+    border-radius: 16px;
+  }
+  .search-icon-img {
+    width: 24px;
+    height: 24px;
+    img {
+      width: 100%;
+    }
+  }
+  .nodata {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    .nodata-img {
+      margin: 72px auto 10px auto;
+      width: 180px;
+      height: 180px;
+    }
+    .nodata-tips {
+      font-size: 15px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #999999;
+    }
+  }
+
+  .commodity {
+    background: #ffffff;
+    box-shadow: 0px 4px 8px 0px rgba(234, 234, 234, 0.44);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    // padding: 10px 12px 12px 12px;
+    .commodity-title {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px 12px 12px;
+      border-bottom: 0.5px solid #EAEAEA;
+      .title-left {
+        font-size: 14px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #000d1d;
+      }
+      .title-right {
+      }
+    }
+    .commodity-info {
+      padding: 10px 12px 0 12px;
+      margin-top: 10px;
+      .info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .info-left {
+        font-size: 13px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #c3c3c3;
+      }
+      .actual-payment {
+        font-size: 13px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #191919;
+        // margin-bottom: 13px;
+      }
+      .right-red {
+        color: #FF0A35 !important;
+      }
+      .info-right {
+        font-size: 13px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #191919;
+      }
+    }
+    .commodity-btn {
+      text-align: right;
+      padding: 0 12px 12px 12px;
+      .btn-round {
+        font-size: 12px;
+        font-weight: 500;
+        height: 28px;
+        border-radius: 20px;
+        border: 0.5px solid;
+      }
+      .del {
+        margin-right: 10px;
+      }
+    }
+  }
+  /deep/.van-search .van-cell {
+    background: #fff;
+  }
+  /deep/.van-search__action {
+    padding: 0 12px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #2956e1;
+  }
+  .van-search__content {
+    padding: 0;
+    background: #fff;
+  }
+  /deep/.van-field__control[type='search'] {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #B4B7BA;
+  }
+}

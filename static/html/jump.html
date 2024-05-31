@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- <script src="../js/sensors.js"></script> -->
+    <script type="text/javascript">
+      //替换所有
+      String.prototype.replaceAll = function(str, target) {
+        return this.replace(new RegExp(str, 'ig'), target)
+      }
+      let getParam = function(name) {
+        let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+        let url = decodeURI(window.location.search.substr(1))
+        let r = url.match(reg)
+        if (r != null && unescape(r[2]) != 'null') {
+          return unescape(r[2])
+        }
+        return null
+      }
+
+      let getQueryString = function(name) {
+        let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+        let r = window.location.search.substr(1).match(reg)
+        if (r != null) return unescape(r[2])
+        return null
+      }
+      //  万顺叫车云公众号
+      // var appid = getQueryString("appid") || "wx1a1a7760d96d2568";  //  万顺叫车公众号：wxb2f6e5f685cac03f wxd91ba33172090905
+      let appId = 'wxd36292db0016c973'
+      let stateStr = getQueryString('state')
+      if (!stateStr || stateStr == '[object+Object]') {
+        stateStr = '{}'
+      }
+      let state = JSON.parse(stateStr)
+      let openid = window.localStorage.getItem('openid') || '' //  目前还没有存储openid的代码
+      let code = getQueryString('code') || getQueryString('installToken') || ''
+      // let backUrl = getQueryString('backUrl') || state.backUrl // 默认跳转到生产
+      let backUrl = getQueryString('backUrl') || state.backUrl || 'https://m.wsfmall.com/qrCodePay'
+      // var sourceId = getQueryString("sourceId") || state.sourceId || window.sessionStorage.getItem("sourceId") || 0;  //访问来源可为空
+      // var serviceType = getQueryString("serviceType") || state.serviceType || window.sessionStorage.getItem("serviceType") || 0;  //请求服务类型，1为预生产
+      // window.sessionStorage.setItem('sourceId', sourceId);
+
+      /**
+       *
+       * getOpenId标记是否是获取code的，跳转该页面时候请set这个参数，值为true就行
+       * 如果没有该值，则认为不是获取openId的则将页面回退，防止无限重定向
+       *
+       */
+      if (!sessionStorage.getItem('getOpenId')) {
+        history.go(-2)
+      } else {
+        sessionStorage.removeItem('getOpenId')
+        if (!openid) {
+          //  目前localStorage还没有存储openid的代码,所以openid一直都会空，建议以后加入该功能
+          if (!code) {
+            // state.sourceId = sourceId;
+            // state.serviceType = serviceType;
+            state.backUrl = backUrl.replace(':', '%3a')
+            state.backUrl = state.backUrl.replace('/', '%2f')
+            stateStr = JSON.stringify(state)
+            let hrefStr = (window.location.origin + window.location.pathname).replace(':', '%3a') //  回调路径不带参数
+            hrefStr = hrefStr.replaceAll('/', '%2f') //  回调路径不带参数
+            window.location.replace(
+              'https://open.weixin.qq.com/connect/oauth2/authorize' +
+                '?appid=' +
+                appId +
+                '&redirect_uri=' +
+                hrefStr +
+                '&response_type=code&scope=snsapi_base&state=' +
+                stateStr
+            )
+          } else {
+            backUrl = backUrl.replace('%3a', ':')
+            backUrl = backUrl.replace('%2f', '/')
+            window.location.replace(backUrl + '?code=' + code)
+          }
+        } else {
+          backUrl = backUrl.replace('%3a', ':')
+          backUrl = backUrl.replace('%2f', '/')
+          window.location.replace(backUrl + '?openid=' + openid)
+        }
+      }
+    </script>
+  </body>
+</html>

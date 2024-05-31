@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no", viewport-fit=“cover”>
+  <!-- 是否发送一个安全请求,http转换为https -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <title>万顺福商城</title>
+  <!-- 调试插件 -->
+  <script src="https://wsjc-web-1301582899.cos.ap-guangzhou.myqcloud.com/cdn/eruda-3.0.1.min.js"></script>
+  <script src="./static/iconfont.js"></script>
+  <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script> -->
+  <!-- <script src=https://res2.wx.qq.com/open/js/jweixin-1.4.0.js></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.4/mobile-detect.min.js"></script> -->
+
+  <style>
+    /** 字体放大兼容 - ios */
+    body {
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+      -moz-text-size-adjust: 100% !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 接入网易七鱼  -->
+  <script>
+    (function (w, d, n, a, j) {
+      w[n] = w[n] || function () {
+        (w[n].a = w[n].a || []).push(arguments);
+      };
+      j = d.createElement('script');
+      j.async = true;
+      j.src = 'https://qiyukf.com/script/c08d7f587048a45a4714a8c48841fbd6.js?hidden=1&subdomain=1';
+      d.body.appendChild(j);
+    })(window, document, 'ysf');
+
+  </script>
+
+  <script>
+    /** 字体放大兼容 - 微信浏览器 */
+    (function () {
+      if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+        handleFontSize();
+      } else {
+        document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+      }
+
+      function handleFontSize() {
+        // 设置网页字体为默认大小
+        WeixinJSBridge.invoke('setFontSizeCallback', {
+          'fontSize': 0
+        });
+        // 重写设置网页字体大小的事件
+        WeixinJSBridge.on('menu:setfont', function () {
+          WeixinJSBridge.invoke('setFontSizeCallback', {
+            'fontSize': 0
+          });
+        });
+      }
+    })();
+    /** 字体放大兼容 - 移动浏览器 */
+
+  </script>
+  <div id="app-box"></div>
+  <!-- built files will be auto injected -->
+</body>
+</script>
+
+</html>

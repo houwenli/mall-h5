@@ -1,0 +1,209 @@
+
+.phone-charge {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(~'100% - 46px');
+  .center{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #f6f6f6;
+  }
+  .phone {
+    padding: 12px 10px 0 10px;
+  }
+  .charge-num {
+    width: 100%;
+    height: 149px;
+    background: url('https://wsjc-web-1301582899.cos.ap-guangzhou.myqcloud.com/wsf-mall/recharge/img_bg%402x.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 0 16px;
+  }
+  .charge-num-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0 8px 0;
+    .input-style {
+      background: transparent;
+      width: 80%;
+      height: 32px;
+      line-height: 32px;
+      font-size: 28px;
+      font-family: DINAlternate-Bold, DINAlternate;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+  }
+  .phone-area {
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .charge-num-img {
+    width: 24px;
+    height: 24px;
+  }
+  .phone-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 150px;
+    overflow: auto;
+    // margin: 11px 0 0 0;
+  }
+  .empty {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    .empty-img {
+      width: 1em;
+      height: 1em;
+      margin-right: 4px;
+    }
+    .empty-text {
+      font-size: 12px;
+      color: #909399;
+    }
+  }
+  .amount {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 3px;
+    background: #fff;
+    border-radius: 16px 16px 0px 0px;
+    /deep/.van-tabs__nav {
+      border-radius: 16px 16px 0px 0px !important;
+    }
+    .warp {
+      font-size: 16px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #191919;
+    }
+    .amount-top {
+      width: 100%;
+      max-height: 440px;
+      overflow: auto;
+      padding: 11px 8px 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .top-up-amount {
+      width: 30.8%;
+      height: 86px;
+      margin: 4px 4.5px;
+      background: #f8f8f8;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .face-value {
+        font-size: 16px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #000d1d;
+      }
+      .price {
+        font-size: 12px;
+        color: #de3a38;
+      }
+    }
+    .actived-style {
+      border: 1px solid #FF0A35;
+     
+    }
+    .unable-style{
+      .face-value {
+         color: #c9c9c9;
+      }
+      .price {
+         color: #c9c9c9;
+      }
+    }
+    .top-up-tips {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 12px;
+      color: #999999;
+    }
+  }
+  .foot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 32px;
+    background: #fff;
+    width: 100%;
+    color: #093ee2;
+    .line {
+      width: 1px;
+      height: 10px;
+      background: #c3c3c3;
+      margin: 0 12px;
+    }
+  }
+  .foot-btn {
+    width: 100%;
+    padding: 0 16px;
+    padding-top: 2px;
+    min-height: 45px;
+    background: #fff;
+    font-size: 16px;
+    box-shadow: 0px -10px 18px 0px rgba(0,0,0,0.13);
+    padding-bottom: calc(constant(safe-area-inset-bottom)); /* 兼容 iOS < 11.2 */
+    padding-bottom: calc(env(safe-area-inset-bottom)); /* 兼容 iOS >= 11.2 */
+    .pay-btn {
+      margin: 8px 0;
+      margin-top: 6px;
+      border-radius: 23px;
+    }
+  }
+  
+  /deep/ .van-cell:after{
+    position: relative;
+  }
+  /deep/.van-cell {
+    background: transparent;
+    padding: 0;
+  }
+  /deep/.van-field__value {
+    caret-color: #eeeeee; // 输入框光标颜色
+    padding-left: 3px;
+  }
+  /deep/.van-field__control {
+    font-size: 28px;
+    font-family: DINAlternate-Bold, DINAlternate;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-bottom: none;
+  }
+  .nodata {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    .nodata-img {
+      margin: 72px auto 10px auto;
+      width: 180px;
+      height: 180px;
+    }
+    .nodata-tips {
+      font-size: 15px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #999999;
+    }
+  }
+  /deep/.van-field__control::placeholder {
+    font-size: 24px;
+    color: #FFFFFF;
+    opacity: 0.4;
+  }
+}
